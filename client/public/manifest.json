@@ -1,0 +1,8 @@
+{
+  "short_name": "Manager Patient Ract APP",
+  "name": "Manager Patient Ract APP",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

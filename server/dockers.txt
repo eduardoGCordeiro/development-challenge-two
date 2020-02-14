@@ -1,0 +1,32 @@
+
+#DynamoDBLocal
+
+FROM java:8-jre-alpine
+
+RUN apk add java-8-alpine
+
+WORKDIR /usr/src/DynamoDb
+
+
+COPY . ./
+
+CMD ["java", "-Djava.library.path=./DynamoDBLocal_lib", "-jar", "DynamoDBLocal.jar", "-sharedDb"]
+
+EXPOSE 8000
+
+# Client
+
+FROM node:8.17.0-alpine
+
+WORKDIR /usr/src/manager-patient/client
+
+COPY package.json package-lock.json ./
+
+RUN npm install
+
+COPY . .
+
+CMD ["npm", "start"]
+
+EXPOSE 3000
+
